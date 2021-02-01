@@ -1,0 +1,12 @@
+asgiref==3.3.1
+Django==3.1.5
+django-cors-headers==3.7.0
+djangorestframework==3.12.2
+et-xmlfile==1.0.1
+jdcal==1.4.1
+lxml==4.6.2
+openpyxl==3.0.6
+psycopg2==2.8.6
+python-docx==0.8.10
+pytz==2020.5
+sqlparse==0.4.1
