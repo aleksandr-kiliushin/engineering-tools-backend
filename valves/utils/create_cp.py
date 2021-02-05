@@ -29,8 +29,6 @@ def create_cp(cp_data):
     ws[f'H{row_num}'] = f'=ROUND(F{row_num}*((100-G{row_num})/100)*E{row_num}, 2)'
     ws[f'I{row_num}'] = f'=ROUND(H{row_num}*120%, 2)'
 
-    print('=ROUND(F{row_num}*((100-G{row_num})/100)*E{row_num}, 2)')
-
   # Locates headers and formulas for total data in the last row.
   last_row_num = start_row_num + len(cp_data)
 
