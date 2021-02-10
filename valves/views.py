@@ -11,13 +11,13 @@ from .utils.create_cp import create_cp
 
 class EquipmentView(APIView):
     def get(self, request):
-        cv_valves         = Equipment.objects.filter(equip_type='cv_valve')
-        pr_valves         = Equipment.objects.filter(equip_type='pr_valve')
-        cv_actuators      = Equipment.objects.filter(equip_type='cv_actuator')
-        downstream_blocks = Equipment.objects.filter(equip_type='downstream_block')
-        dpr_blocks        = Equipment.objects.filter(equip_type='dpr_block')
-        upstream_blocks   = Equipment.objects.filter(equip_type='upstream_block')
-        pulse_tubes       = Equipment.objects.filter(equip_type='pulse_tube')
+        cv_valves         = Equipment.objects.filter(equip_type='cv_valve').order_by('id')
+        pr_valves         = Equipment.objects.filter(equip_type='pr_valve').order_by('id')
+        cv_actuators      = Equipment.objects.filter(equip_type='cv_actuator').order_by('id')
+        downstream_blocks = Equipment.objects.filter(equip_type='downstream_block').order_by('id')
+        dpr_blocks        = Equipment.objects.filter(equip_type='dpr_block').order_by('id')
+        upstream_blocks   = Equipment.objects.filter(equip_type='upstream_block').order_by('id')
+        pulse_tubes       = Equipment.objects.filter(equip_type='pulse_tube').order_by('id')
         # the many param informs the serializer that it will be serializing more than a single article.
         cv_valves_serializer         = EquipmentSerializer(cv_valves,         many=True)
         pr_valves_serializer         = EquipmentSerializer(pr_valves,         many=True)
