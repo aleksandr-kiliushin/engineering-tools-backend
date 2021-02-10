@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import dj_database_url
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,23 +26,24 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'bl7wvwq&rw!j^8w4e4@a*!trgd_*q&jprao#lt538w4hzhmq&$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'valves.apps.ValvesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'valves.apps.ValvesConfig',
     'rest_framework',
     'corsheaders',
+    # 'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myserver.urls'
@@ -85,13 +89,32 @@ WSGI_APPLICATION = 'myserver.wsgi.application'
 #     }
 # }
 
+# The variant for deploy to heroku.
+# DATABASES = {
+#     'default': dj_database_url.config()
+# }
+
+
+# Connect to elephantsql.
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'nufesefi',
+#         'USER': 'nufesefi',
+#         'PASSWORD': 'FkIVrMikmLQecbV7fphm6wDcLtN9XrnP',
+#         'HOST': 'dumbo.db.elephantsql.com',
+#         'PORT': '5432',
+#     }
+# }
+
+# Connect to data.heroku.com.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'nufesefi',
-        'USER': 'nufesefi',
-        'PASSWORD': 'FkIVrMikmLQecbV7fphm6wDcLtN9XrnP',
-        'HOST': 'dumbo.db.elephantsql.com',
+        'NAME': 'dflhagug5smq8d',
+        'USER': 'hkntgsmxslovma',
+        'PASSWORD': '231bca161525fd81eebd422e99d4a5f1c16495d7bb2e31424fcd1adf7d468fc9',
+        'HOST': 'ec2-34-198-31-223.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
@@ -139,4 +162,20 @@ STATIC_URL = '/static/'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 django_heroku.settings(locals())
+
+
+
+
+
+# Inserted from sitedf.
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'myserver/static'),
+# ]
+# EMAIL_HOST = 'smtp.yandex.ru'
+# EMAIL_PORT = 465
+# EMAIL_HOST_USER = 'ttst20@yandex.ru'
+# EMAIL_HOST_PASSWORD = 'ttst20ttst20'
+# EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = True
