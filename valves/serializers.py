@@ -9,6 +9,7 @@ class EquipmentSerializer(serializers.ModelSerializer):
         model = Equipment
         # fields = ('code', 'dn', 'equip_type', 'full_title', 'kvs', 'price', 'type_title', 'z', 'discount_group')
         # fields = '__all__'
+        # fields = '__all__'
         exclude = ('id',)
 
     def to_representation(self, instance):
