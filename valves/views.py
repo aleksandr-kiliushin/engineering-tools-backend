@@ -3,7 +3,7 @@ from rest_framework.views import APIView
 from django.http import FileResponse
 
 from .models import Equipment
-from .serializers import EquipmentSerializer
+from .serializers import EquipmentSerializer, EquipmentSerializerWithoutDiscountGroup
 
 from .utils.create_cp import create_cp
 
@@ -19,13 +19,13 @@ class EquipmentView(APIView):
         upstream_blocks   = Equipment.objects.filter(equip_type='upstream_block').order_by('id')
         pulse_tubes       = Equipment.objects.filter(equip_type='pulse_tube').order_by('id')
         # the many param informs the serializer that it will be serializing more than a single article.
-        cv_valves_serializer         = EquipmentSerializer(cv_valves,         many=True)
-        pr_valves_serializer         = EquipmentSerializer(pr_valves,         many=True)
-        cv_actuators_serializer      = EquipmentSerializer(cv_actuators,      many=True)
-        downstream_blocks_serializer = EquipmentSerializer(downstream_blocks, many=True)
-        dpr_blocks_serializer        = EquipmentSerializer(dpr_blocks,        many=True)
-        upstream_blocks_serializer   = EquipmentSerializer(upstream_blocks,   many=True)
-        pulse_tubes_serializer       = EquipmentSerializer(pulse_tubes,       many=True)
+        cv_valves_serializer         = EquipmentSerializerWithoutDiscountGroup(cv_valves,         many=True)
+        pr_valves_serializer         = EquipmentSerializerWithoutDiscountGroup(pr_valves,         many=True)
+        cv_actuators_serializer      = EquipmentSerializerWithoutDiscountGroup(cv_actuators,      many=True)
+        downstream_blocks_serializer = EquipmentSerializerWithoutDiscountGroup(downstream_blocks, many=True)
+        dpr_blocks_serializer        = EquipmentSerializerWithoutDiscountGroup(dpr_blocks,        many=True)
+        upstream_blocks_serializer   = EquipmentSerializerWithoutDiscountGroup(upstream_blocks,   many=True)
+        pulse_tubes_serializer       = EquipmentSerializerWithoutDiscountGroup(pulse_tubes,       many=True)
 
         return Response({
             'cv_valves'         : cv_valves_serializer.data,
