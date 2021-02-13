@@ -35,7 +35,6 @@ class EquipmentView(APIView):
             'dpr_blocks'        : dpr_blocks_serializer.data,
             'upstream_blocks'   : upstream_blocks_serializer.data,
             'pulse_tubes'       : pulse_tubes_serializer.data,
-            'test_data': [1, 2, 3,],#delete
         })
 
 
