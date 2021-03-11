@@ -82,38 +82,13 @@ WSGI_APPLICATION = 'myserver.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
-# The variant for deploy to heroku.
-# DATABASES = {
-#     'default': dj_database_url.config()
-# }
-
-
-# Connect to elephantsql.
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'nufesefi',
-#         'USER': 'nufesefi',
-#         'PASSWORD': 'FkIVrMikmLQecbV7fphm6wDcLtN9XrnP',
-#         'HOST': 'dumbo.db.elephantsql.com',
-#         'PORT': '5432',
-#     }
-# }
-
 # Connect to data.heroku.com.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dflhagug5smq8d',
-        'USER': 'hkntgsmxslovma',
-        'PASSWORD': '231bca161525fd81eebd422e99d4a5f1c16495d7bb2e31424fcd1adf7d468fc9',
+        'NAME': '?',
+        'USER': '?',
+        'PASSWORD': '?',
         'HOST': 'ec2-34-198-31-223.compute-1.amazonaws.com',
         'PORT': '5432',
     }
